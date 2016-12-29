@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>background1024x768.png</Source>
+      <Name>background1024x768</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\background1024x768.xnb</Output>
+      <Time>2016-12-28T22:17:40.2527878+08:00</Time>
+    </Item>
+    <Item>
+      <Source>GameStart1024x768.jpg</Source>
+      <Name>GameStart1024x768</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\GameStart1024x768.xnb</Output>
+      <Time>2016-12-28T22:17:40.2537879+08:00</Time>
+    </Item>
+    <Item>
+      <Source>Paper400x600.png</Source>
+      <Name>Paper400x600</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Paper400x600.xnb</Output>
+      <Time>2016-12-28T22:17:40.256788+08:00</Time>
+    </Item>
+    <Item>
+      <Source>Rock400x600.png</Source>
+      <Name>Rock400x600</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Rock400x600.xnb</Output>
+      <Time>2016-12-28T22:17:40.2677887+08:00</Time>
+    </Item>
+    <Item>
+      <Source>Scissor400x600.png</Source>
+      <Name>Scissor400x600</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Scissor400x600.xnb</Output>
+      <Time>2016-12-28T22:17:40.2677887+08:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{ED7C53EB-5BDF-4F50-A3FD-0EF3B154C7C8}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocsContent\</RootDirectory>
+      <LoggerRootDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+08:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+08:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+08:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+08:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30+08:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30+08:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2016-12-20T23:03:25.5784413+08:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
