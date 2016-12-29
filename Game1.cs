@@ -22,6 +22,11 @@ namespace GuessFingerMoocs
         // 替每張圖片宣告一個變數
         Texture2D image1, image2, image3, imageGameStart, imageBackgroud;
 
+        // 紀錄玩家出拳，0=初始值，1=剪刀，2=石頭，3=布
+        int player = 0;
+        // 紀錄場景，0=開始畫面，1=出拳畫面
+        int gameState = 0; 
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -84,8 +89,35 @@ namespace GuessFingerMoocs
                 this.Exit();
 
             // TODO: Add your update logic here
+            // 取得見盤案下的狀態
+            KeyboardState newState = Keyboard.GetState();
+            // 按下ESC 可以離開遊戲
+            if (newState.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+            // 按下數字鍵1，把玩家出拳的變數值修改為1，代表剪刀
+            if (newState.IsKeyDown(Keys.D1))
+            {
+                player = 1;
+            }
+            // 按下數字鍵1，把玩家出拳的變數值修改為2，代表石頭
+            if (newState.IsKeyDown(Keys.D2))
+            {
+                player = 2;
+            }
+            // 按下數字鍵1，把玩家出拳的變數值修改為3，代表布
+            if (newState.IsKeyDown(Keys.D3))
+            {
+                player = 3;
+            }
 
-            base.Update(gameTime);
+            if (newState.IsKeyDown(Keys.D1) || newState.IsKeyDown(Keys.D2) || newState.IsKeyDown(Keys.D3))
+            {
+                gameState = 1;
+            }
+
+                base.Update(gameTime);
         }
 
         /// <summary>
@@ -100,7 +132,29 @@ namespace GuessFingerMoocs
             spriteBatch.Begin();
             // sprite.draw 的使用方法很多種，這裡載入的只有3個參數
             // 參數1表示要顯示的圖片，參數2表示顯示圖片的起始位置，參數3表示填色，White表示不填色
-            spriteBatch.Draw(imageGameStart,Vector2.Zero,Color.White);
+            // 原本繪出開始畫面也要更改，只有當還沒出拳時，才會繪製開始畫面
+            if (gameState == 0)
+            {
+                spriteBatch.Draw(imageGameStart, Vector2.Zero, Color.White);
+            }
+            if (gameState == 1)
+            {
+                // 繪製出拳後的遊戲背景
+                spriteBatch.Draw(imageBackgroud, Vector2.Zero, Color.White);
+                // 繪製出拳的貼圖
+                if (player == 1)
+                {
+                    spriteBatch.Draw(image1, new Vector2(550,100), Color.White);
+                }
+                if (player == 2)
+                {
+                    spriteBatch.Draw(image2, new Vector2(550, 100), Color.White);
+                }
+                if (player == 3)
+                {
+                    spriteBatch.Draw(image3, new Vector2(550, 100), Color.White);
+                }
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);
