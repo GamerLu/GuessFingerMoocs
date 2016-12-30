@@ -25,7 +25,11 @@ namespace GuessFingerMoocs
         // 紀錄玩家出拳，0=初始值，1=剪刀，2=石頭，3=布
         int player = 0;
         // 紀錄場景，0=開始畫面，1=出拳畫面
-        int gameState = 0; 
+        int gameState = 0;
+        // 紀錄玩家出拳，0=初始值，1=剪刀，2=石頭，3=布
+        int computer = 0;
+        // 宣告隨機的變數，之後再產生數字
+        Random random = new Random();
 
         public Game1()
         {
@@ -89,7 +93,7 @@ namespace GuessFingerMoocs
                 this.Exit();
 
             // TODO: Add your update logic here
-            // 取得見盤案下的狀態
+            // 取得鍵盤按下的狀態
             KeyboardState newState = Keyboard.GetState();
             // 按下ESC 可以離開遊戲
             if (newState.IsKeyDown(Keys.Escape))
@@ -117,6 +121,9 @@ namespace GuessFingerMoocs
                 gameState = 1;
             }
 
+            // 隨機產生1-3數字
+            computer = random.Next(1, 4);
+
                 base.Update(gameTime);
         }
 
@@ -141,7 +148,7 @@ namespace GuessFingerMoocs
             {
                 // 繪製出拳後的遊戲背景
                 spriteBatch.Draw(imageBackgroud, Vector2.Zero, Color.White);
-                // 繪製出拳的貼圖
+                // 繪製玩家出拳的貼圖
                 if (player == 1)
                 {
                     spriteBatch.Draw(image1, new Vector2(550,100), Color.White);
@@ -153,6 +160,21 @@ namespace GuessFingerMoocs
                 if (player == 3)
                 {
                     spriteBatch.Draw(image3, new Vector2(550, 100), Color.White);
+                }
+
+
+                // 繪製電腦出拳的貼圖
+                if (computer == 1)
+                {
+                    spriteBatch.Draw(image1, new Vector2(50, 100), Color.White);
+                }
+                if (computer == 2)
+                {
+                    spriteBatch.Draw(image2, new Vector2(50, 100), Color.White);
+                }
+                if (computer == 3)
+                {
+                    spriteBatch.Draw(image3, new Vector2(50, 100), Color.White);
                 }
             }
             spriteBatch.End();
