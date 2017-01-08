@@ -26,11 +26,13 @@ namespace GuessFingerMoocs
         int player = 0;
         // 紀錄場景，0=開始畫面，1=出拳畫面
         int gameState = 0;
-        // 紀錄玩家出拳，0=初始值，1=剪刀，2=石頭，3=布
+        // 紀錄電腦出拳，0=初始值，1=剪刀，2=石頭，3=布
         int computer = 0;
         // 宣告隨機的變數，之後再產生數字
         Random random = new Random();
-
+        // 記錄玩家的先前的鍵盤動作，之前在Update執行階段已有變數newState取得最新的鍵盤狀態
+        KeyboardState previousState = Keyboard.GetState();
+        
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -100,6 +102,9 @@ namespace GuessFingerMoocs
             {
                 Exit();
             }
+
+            // [舊有程式碼]
+            /*
             // 按下數字鍵1，把玩家出拳的變數值修改為1，代表剪刀
             if (newState.IsKeyDown(Keys.D1))
             {
@@ -115,16 +120,40 @@ namespace GuessFingerMoocs
             {
                 player = 3;
             }
+             */
 
             if (newState.IsKeyDown(Keys.D1) || newState.IsKeyDown(Keys.D2) || newState.IsKeyDown(Keys.D3))
             {
                 gameState = 1;
             }
 
-            // 隨機產生1-3數字
+            /*
+            // [舊有程式碼] 隨機產生1-3數字
             computer = random.Next(1, 4);
+            */
 
-                base.Update(gameTime);
+            // [修正電腦出拳後的程式碼]
+            // 判斷玩家按下且放開後，才隨機產生一次數字  
+            // 注意! 如果以下判斷式是前後對調 改成 if (previousState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1)) 的話，是玩家一按下按鍵電腦就會出拳
+            if (newState.IsKeyUp(Keys.D1) && previousState.IsKeyDown(Keys.D1))
+            {
+                player = 1;
+                computer = random.Next(1, 4);
+            }
+            if (newState.IsKeyUp(Keys.D2) && previousState.IsKeyDown(Keys.D2))
+            {
+                player = 2;
+                computer = random.Next(1, 4);
+            }
+            if (newState.IsKeyUp(Keys.D3) && previousState.IsKeyDown(Keys.D3))
+            {
+                player = 3;
+                computer = random.Next(1, 4);
+            }
+            // 記得把鍵盤的完成狀態記錄到之前的狀態變數
+            previousState = newState;
+
+            base.Update(gameTime);
         }
 
         /// <summary>
