@@ -32,7 +32,13 @@ namespace GuessFingerMoocs
         Random random = new Random();
         // 記錄玩家的先前的鍵盤動作，之前在Update執行階段已有變數newState取得最新的鍵盤狀態
         KeyboardState previousState = Keyboard.GetState();
-        
+
+        // 紀錄贏家是誰，1是電腦贏，2是玩家贏，999代表平手
+        int winner = 0;
+
+        // 宣告字型變數
+        SpriteFont fontArial;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -71,7 +77,10 @@ namespace GuessFingerMoocs
             image2 = Content.Load<Texture2D>("Rock400x600");
             image3 = Content.Load<Texture2D>("Paper400x600");
             imageGameStart = Content.Load<Texture2D>("GameStart1024x768");
-            imageBackgroud = Content.Load<Texture2D>("background1024x768");   
+            imageBackgroud = Content.Load<Texture2D>("background1024x768");
+
+            // 載入字型資源給予字型變數
+            fontArial = Content.Load<SpriteFont>("SpriteFont1");
         }
 
         /// <summary>
@@ -153,6 +162,9 @@ namespace GuessFingerMoocs
             // 記得把鍵盤的完成狀態記錄到之前的狀態變數
             previousState = newState;
 
+            // 呼叫判斷轉贏的函數
+            checkWinner();
+
             base.Update(gameTime);
         }
 
@@ -205,10 +217,64 @@ namespace GuessFingerMoocs
                 {
                     spriteBatch.Draw(image3, new Vector2(50, 100), Color.White);
                 }
+
+                // 繪出人物誰是玩家，誰是電腦
+                spriteBatch.DrawString(fontArial, "電腦", new Vector2(180, 700), Color.White);
+                spriteBatch.DrawString(fontArial, "玩家", new Vector2(700, 700), Color.Brown);
+
+                // 繪出輸贏的結果
+                if (winner == 999)
+                {
+                    spriteBatch.DrawString(fontArial, "平手", new Vector2(450, 10), Color.Brown);
+                }
+                if (winner == 1)
+                {
+                    spriteBatch.DrawString(fontArial, "電腦贏", new Vector2(410, 10), Color.Black);
+                }
+                if (winner == 2)
+                {
+                    spriteBatch.DrawString(fontArial, "玩家贏", new Vector2(410, 10), Color.DarkGreen);
+                }
             }
             spriteBatch.End();
 
             base.Draw(gameTime);
+        }
+
+        // 判斷輸贏的函數
+        void checkWinner()
+        {
+            if (player== computer)
+            {
+                winner = 999;
+            }
+            if (player==1 && computer == 2)
+            {
+                winner = 1;
+            }
+            if (player == 1 && computer == 3)
+            {
+                winner = 2;
+            }
+
+            if (player == 2 && computer == 1)
+            {
+                winner = 2;
+            }
+            if (player == 2 && computer == 3)
+            {
+                winner = 1;
+            }
+
+            if (player == 3 && computer == 1)
+            {
+                winner = 1;
+            }
+            if (player == 3 && computer == 2)
+            {
+                winner = 2;
+            }
+
         }
     }
 }

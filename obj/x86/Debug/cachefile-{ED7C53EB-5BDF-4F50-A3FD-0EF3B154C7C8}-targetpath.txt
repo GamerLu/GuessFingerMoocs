@@ -3,3 +3,4 @@ Content\GameStart1024x768.xnb
 Content\Paper400x600.xnb
 Content\Rock400x600.xnb
 Content\Scissor400x600.xnb
+Content\SpriteFont1.xnb

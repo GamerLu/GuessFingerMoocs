@@ -46,6 +46,15 @@
       <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Scissor400x600.xnb</Output>
       <Time>2016-12-28T22:17:40.2677887+08:00</Time>
     </Item>
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2017-01-08T16:23:04.0520473+08:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{ED7C53EB-5BDF-4F50-A3FD-0EF3B154C7C8}</ContentProjectGUID>
@@ -53,10 +62,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocsContent\</RootDirectory>
-      <LoggerRootDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocsContent\</RootDirectory>
+      <LoggerRootDirectory>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

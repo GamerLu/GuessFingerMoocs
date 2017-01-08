@@ -19,3 +19,4 @@ C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMooc
 C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Rock400x600.xnb
 C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Scissor400x600.xnb
 c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\obj\x86\Debug\GuessFingerMoocs.csprojResolveAssemblyReference.cache
+c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\SpriteFont1.xnb
