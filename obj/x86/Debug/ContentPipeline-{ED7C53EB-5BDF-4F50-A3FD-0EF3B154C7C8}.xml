@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\background1024x768.xnb</Output>
+      <Output>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\background1024x768.xnb</Output>
       <Time>2016-12-28T22:17:40.2527878+08:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\GameStart1024x768.xnb</Output>
+      <Output>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\GameStart1024x768.xnb</Output>
       <Time>2016-12-28T22:17:40.2537879+08:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Paper400x600.xnb</Output>
+      <Output>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Paper400x600.xnb</Output>
       <Time>2016-12-28T22:17:40.256788+08:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Rock400x600.xnb</Output>
+      <Output>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Rock400x600.xnb</Output>
       <Time>2016-12-28T22:17:40.2677887+08:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Scissor400x600.xnb</Output>
+      <Output>c:\visual studio 2015\Projects\GuessFingerMoocs\GuessFingerMoocs\GuessFingerMoocs\bin\x86\Debug\Content\Scissor400x600.xnb</Output>
       <Time>2016-12-28T22:17:40.2677887+08:00</Time>
     </Item>
     <Item>

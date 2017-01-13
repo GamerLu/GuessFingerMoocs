@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Xna.Framework;
@@ -19,25 +19,28 @@ namespace GuessFingerMoocs
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        // ´À¨C±i¹Ï¤ù«Å§i¤@­ÓÅÜ¼Æ
+        // æ›¿æ¯å¼µåœ–ç‰‡å®£å‘Šä¸€å€‹è®Šæ•¸
         Texture2D image1, image2, image3, imageGameStart, imageBackgroud;
 
-        // ¬ö¿ıª±®a¥X®±¡A0=ªì©l­È¡A1=°Å¤M¡A2=¥ÛÀY¡A3=¥¬
+        // ç´€éŒ„ç©å®¶å‡ºæ‹³ï¼Œ0=åˆå§‹å€¼ï¼Œ1=å‰ªåˆ€ï¼Œ2=çŸ³é ­ï¼Œ3=å¸ƒ
         int player = 0;
-        // ¬ö¿ı³õ´º¡A0=¶}©lµe­±¡A1=¥X®±µe­±
+        // ç´€éŒ„å ´æ™¯ï¼Œ0=é–‹å§‹ç•«é¢ï¼Œ1=å‡ºæ‹³ç•«é¢
         int gameState = 0;
-        // ¬ö¿ı¹q¸£¥X®±¡A0=ªì©l­È¡A1=°Å¤M¡A2=¥ÛÀY¡A3=¥¬
+        // ç´€éŒ„é›»è…¦å‡ºæ‹³ï¼Œ0=åˆå§‹å€¼ï¼Œ1=å‰ªåˆ€ï¼Œ2=çŸ³é ­ï¼Œ3=å¸ƒ
         int computer = 0;
-        // «Å§iÀH¾÷ªºÅÜ¼Æ¡A¤§«á¦A²£¥Í¼Æ¦r
+        // å®£å‘Šéš¨æ©Ÿçš„è®Šæ•¸ï¼Œä¹‹å¾Œå†ç”¢ç”Ÿæ•¸å­—
         Random random = new Random();
-        // °O¿ıª±®aªº¥ı«eªºÁä½L°Ê§@¡A¤§«e¦bUpdate°õ¦æ¶¥¬q¤w¦³ÅÜ¼ÆnewState¨ú±o³Ì·sªºÁä½Lª¬ºA
+        // è¨˜éŒ„ç©å®¶çš„å…ˆå‰çš„éµç›¤å‹•ä½œï¼Œä¹‹å‰åœ¨UpdateåŸ·è¡Œéšæ®µå·²æœ‰è®Šæ•¸newStateå–å¾—æœ€æ–°çš„éµç›¤ç‹€æ…‹
         KeyboardState previousState = Keyboard.GetState();
 
-        // ¬ö¿ıÄ¹®a¬O½Ö¡A1¬O¹q¸£Ä¹¡A2¬Oª±®aÄ¹¡A999¥Nªí¥­¤â
+        // ç´€éŒ„è´å®¶æ˜¯èª°ï¼Œ1æ˜¯é›»è…¦è´ï¼Œ2æ˜¯ç©å®¶è´ï¼Œ999ä»£è¡¨å¹³æ‰‹
         int winner = 0;
 
-        // «Å§i¦r«¬ÅÜ¼Æ
+        // å®£å‘Šå­—å‹è®Šæ•¸
         SpriteFont fontArial;
+
+        // è²¼åœ–ä½ç½®çš„ä½ç§»é‡ï¼Œä¹‹å¾Œå°‡ç”±éš¨æ©Ÿç”¢ç”Ÿ
+        int moveVibration = 0;
 
         public Game1()
         {
@@ -54,7 +57,7 @@ namespace GuessFingerMoocs
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            // ³]©w°_©lµe­±¤j¤p
+            // è¨­å®šèµ·å§‹ç•«é¢å¤§å°
             graphics.PreferredBackBufferWidth = 1024;
             graphics.PreferredBackBufferHeight = 768;
             graphics.ApplyChanges();
@@ -72,14 +75,14 @@ namespace GuessFingerMoocs
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            // ¸ü¤JÅÜ¼Æ¡A¨Ã¹ïÀ³¨C­Ó¹Ï¤ùÅÜ¼Æ
+            // è¼‰å…¥è®Šæ•¸ï¼Œä¸¦å°æ‡‰æ¯å€‹åœ–ç‰‡è®Šæ•¸
             image1 = Content.Load<Texture2D>("Scissor400x600");
             image2 = Content.Load<Texture2D>("Rock400x600");
             image3 = Content.Load<Texture2D>("Paper400x600");
             imageGameStart = Content.Load<Texture2D>("GameStart1024x768");
             imageBackgroud = Content.Load<Texture2D>("background1024x768");
 
-            // ¸ü¤J¦r«¬¸ê·½µ¹¤©¦r«¬ÅÜ¼Æ
+            // è¼‰å…¥å­—å‹è³‡æºçµ¦äºˆå­—å‹è®Šæ•¸
             fontArial = Content.Load<SpriteFont>("SpriteFont1");
         }
 
@@ -104,27 +107,27 @@ namespace GuessFingerMoocs
                 this.Exit();
 
             // TODO: Add your update logic here
-            // ¨ú±oÁä½L«ö¤Uªºª¬ºA
+            // å–å¾—éµç›¤æŒ‰ä¸‹çš„ç‹€æ…‹
             KeyboardState newState = Keyboard.GetState();
-            // «ö¤UESC ¥i¥HÂ÷¶}¹CÀ¸
+            // æŒ‰ä¸‹ESC å¯ä»¥é›¢é–‹éŠæˆ²
             if (newState.IsKeyDown(Keys.Escape))
             {
                 Exit();
             }
 
-            // [ÂÂ¦³µ{¦¡½X]
+            // [èˆŠæœ‰ç¨‹å¼ç¢¼]
             /*
-            // «ö¤U¼Æ¦rÁä1¡A§âª±®a¥X®±ªºÅÜ¼Æ­È­×§ï¬°1¡A¥Nªí°Å¤M
+            // æŒ‰ä¸‹æ•¸å­—éµ1ï¼ŒæŠŠç©å®¶å‡ºæ‹³çš„è®Šæ•¸å€¼ä¿®æ”¹ç‚º1ï¼Œä»£è¡¨å‰ªåˆ€
             if (newState.IsKeyDown(Keys.D1))
             {
                 player = 1;
             }
-            // «ö¤U¼Æ¦rÁä1¡A§âª±®a¥X®±ªºÅÜ¼Æ­È­×§ï¬°2¡A¥Nªí¥ÛÀY
+            // æŒ‰ä¸‹æ•¸å­—éµ1ï¼ŒæŠŠç©å®¶å‡ºæ‹³çš„è®Šæ•¸å€¼ä¿®æ”¹ç‚º2ï¼Œä»£è¡¨çŸ³é ­
             if (newState.IsKeyDown(Keys.D2))
             {
                 player = 2;
             }
-            // «ö¤U¼Æ¦rÁä1¡A§âª±®a¥X®±ªºÅÜ¼Æ­È­×§ï¬°3¡A¥Nªí¥¬
+            // æŒ‰ä¸‹æ•¸å­—éµ1ï¼ŒæŠŠç©å®¶å‡ºæ‹³çš„è®Šæ•¸å€¼ä¿®æ”¹ç‚º3ï¼Œä»£è¡¨å¸ƒ
             if (newState.IsKeyDown(Keys.D3))
             {
                 player = 3;
@@ -134,16 +137,18 @@ namespace GuessFingerMoocs
             if (newState.IsKeyDown(Keys.D1) || newState.IsKeyDown(Keys.D2) || newState.IsKeyDown(Keys.D3))
             {
                 gameState = 1;
+                // ç”¢ç”Ÿéš¨æ©Ÿçš„ä½ç§»é‡ï¼Œç¯„åœ -10 åˆ° 10
+                moveVibration = random.Next(0, 21)-10;
             }
 
             /*
-            // [ÂÂ¦³µ{¦¡½X] ÀH¾÷²£¥Í1-3¼Æ¦r
+            // [èˆŠæœ‰ç¨‹å¼ç¢¼] éš¨æ©Ÿç”¢ç”Ÿ1-3æ•¸å­—
             computer = random.Next(1, 4);
             */
 
-            // [­×¥¿¹q¸£¥X®±«áªºµ{¦¡½X]
-            // §PÂ_ª±®a«ö¤U¥B©ñ¶}«á¡A¤~ÀH¾÷²£¥Í¤@¦¸¼Æ¦r  
-            // ª`·N! ¦pªG¥H¤U§PÂ_¦¡¬O«e«á¹ï½Õ §ï¦¨ if (previousState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1)) ªº¸Ü¡A¬Oª±®a¤@«ö¤U«öÁä¹q¸£´N·|¥X®±
+            // [ä¿®æ­£é›»è…¦å‡ºæ‹³å¾Œçš„ç¨‹å¼ç¢¼]
+            // åˆ¤æ–·ç©å®¶æŒ‰ä¸‹ä¸”æ”¾é–‹å¾Œï¼Œæ‰éš¨æ©Ÿç”¢ç”Ÿä¸€æ¬¡æ•¸å­—  
+            // æ³¨æ„! å¦‚æœä»¥ä¸‹åˆ¤æ–·å¼æ˜¯å‰å¾Œå°èª¿ æ”¹æˆ if (previousState.IsKeyUp(Keys.D1) && newState.IsKeyDown(Keys.D1)) çš„è©±ï¼Œæ˜¯ç©å®¶ä¸€æŒ‰ä¸‹æŒ‰éµé›»è…¦å°±æœƒå‡ºæ‹³
             if (newState.IsKeyUp(Keys.D1) && previousState.IsKeyDown(Keys.D1))
             {
                 player = 1;
@@ -159,10 +164,10 @@ namespace GuessFingerMoocs
                 player = 3;
                 computer = random.Next(1, 4);
             }
-            // °O±o§âÁä½Lªº§¹¦¨ª¬ºA°O¿ı¨ì¤§«eªºª¬ºAÅÜ¼Æ
+            // è¨˜å¾—æŠŠéµç›¤çš„å®Œæˆç‹€æ…‹è¨˜éŒ„åˆ°ä¹‹å‰çš„ç‹€æ…‹è®Šæ•¸
             previousState = newState;
 
-            // ©I¥s§PÂ_ÂàÄ¹ªº¨ç¼Æ
+            // å‘¼å«åˆ¤æ–·è½‰è´çš„å‡½æ•¸
             checkWinner();
 
             base.Update(gameTime);
@@ -178,62 +183,62 @@ namespace GuessFingerMoocs
 
             // TODO: Add your drawing code here
             spriteBatch.Begin();
-            // sprite.draw ªº¨Ï¥Î¤èªk«Ü¦hºØ¡A³o¸Ì¸ü¤Jªº¥u¦³3­Ó°Ñ¼Æ
-            // °Ñ¼Æ1ªí¥Ü­nÅã¥Üªº¹Ï¤ù¡A°Ñ¼Æ2ªí¥ÜÅã¥Ü¹Ï¤ùªº°_©l¦ì¸m¡A°Ñ¼Æ3ªí¥Ü¶ñ¦â¡AWhiteªí¥Ü¤£¶ñ¦â
-            // ­ì¥»Ã¸¥X¶}©lµe­±¤]­n§ó§ï¡A¥u¦³·íÁÙ¨S¥X®±®É¡A¤~·|Ã¸»s¶}©lµe­±
+            // sprite.draw çš„ä½¿ç”¨æ–¹æ³•å¾ˆå¤šç¨®ï¼Œé€™è£¡è¼‰å…¥çš„åªæœ‰3å€‹åƒæ•¸
+            // åƒæ•¸1è¡¨ç¤ºè¦é¡¯ç¤ºçš„åœ–ç‰‡ï¼Œåƒæ•¸2è¡¨ç¤ºé¡¯ç¤ºåœ–ç‰‡çš„èµ·å§‹ä½ç½®ï¼Œåƒæ•¸3è¡¨ç¤ºå¡«è‰²ï¼ŒWhiteè¡¨ç¤ºä¸å¡«è‰²
+            // åŸæœ¬ç¹ªå‡ºé–‹å§‹ç•«é¢ä¹Ÿè¦æ›´æ”¹ï¼Œåªæœ‰ç•¶é‚„æ²’å‡ºæ‹³æ™‚ï¼Œæ‰æœƒç¹ªè£½é–‹å§‹ç•«é¢
             if (gameState == 0)
             {
                 spriteBatch.Draw(imageGameStart, Vector2.Zero, Color.White);
             }
             if (gameState == 1)
             {
-                // Ã¸»s¥X®±«áªº¹CÀ¸­I´º
+                // ç¹ªè£½å‡ºæ‹³å¾Œçš„éŠæˆ²èƒŒæ™¯
                 spriteBatch.Draw(imageBackgroud, Vector2.Zero, Color.White);
-                // Ã¸»sª±®a¥X®±ªº¶K¹Ï
+                // ç¹ªè£½ç©å®¶å‡ºæ‹³çš„è²¼åœ–
                 if (player == 1)
                 {
-                    spriteBatch.Draw(image1, new Vector2(550,100), Color.White);
+                    spriteBatch.Draw(image1, new Vector2(550+ moveVibration, 100+ moveVibration), Color.White);
                 }
                 if (player == 2)
                 {
-                    spriteBatch.Draw(image2, new Vector2(550, 100), Color.White);
+                    spriteBatch.Draw(image2, new Vector2(550 + moveVibration, 100 + moveVibration), Color.White);
                 }
                 if (player == 3)
                 {
-                    spriteBatch.Draw(image3, new Vector2(550, 100), Color.White);
+                    spriteBatch.Draw(image3, new Vector2(550 + moveVibration, 100 + moveVibration), Color.White);
                 }
 
 
-                // Ã¸»s¹q¸£¥X®±ªº¶K¹Ï
+                // ç¹ªè£½é›»è…¦å‡ºæ‹³çš„è²¼åœ–
                 if (computer == 1)
                 {
-                    spriteBatch.Draw(image1, new Vector2(50, 100), Color.White);
+                    spriteBatch.Draw(image1, new Vector2(50 + moveVibration, 100 + moveVibration), Color.White);
                 }
                 if (computer == 2)
                 {
-                    spriteBatch.Draw(image2, new Vector2(50, 100), Color.White);
+                    spriteBatch.Draw(image2, new Vector2(50 + moveVibration, 100 + moveVibration), Color.White);
                 }
                 if (computer == 3)
                 {
-                    spriteBatch.Draw(image3, new Vector2(50, 100), Color.White);
+                    spriteBatch.Draw(image3, new Vector2(50 + moveVibration, 100 + moveVibration), Color.White);
                 }
 
-                // Ã¸¥X¤Hª«½Ö¬Oª±®a¡A½Ö¬O¹q¸£
-                spriteBatch.DrawString(fontArial, "¹q¸£", new Vector2(180, 700), Color.White);
-                spriteBatch.DrawString(fontArial, "ª±®a", new Vector2(700, 700), Color.Brown);
+                // ç¹ªå‡ºäººç‰©èª°æ˜¯ç©å®¶ï¼Œèª°æ˜¯é›»è…¦
+                spriteBatch.DrawString(fontArial, "é›»è…¦", new Vector2(180, 700), Color.White);
+                spriteBatch.DrawString(fontArial, "ç©å®¶", new Vector2(700, 700), Color.Brown);
 
-                // Ã¸¥X¿éÄ¹ªºµ²ªG
+                // ç¹ªå‡ºè¼¸è´çš„çµæœ
                 if (winner == 999)
                 {
-                    spriteBatch.DrawString(fontArial, "¥­¤â", new Vector2(450, 10), Color.Brown);
+                    spriteBatch.DrawString(fontArial, "å¹³æ‰‹", new Vector2(450, 10), Color.Brown);
                 }
                 if (winner == 1)
                 {
-                    spriteBatch.DrawString(fontArial, "¹q¸£Ä¹", new Vector2(410, 10), Color.Black);
+                    spriteBatch.DrawString(fontArial, "é›»è…¦è´", new Vector2(410, 10), Color.Black);
                 }
                 if (winner == 2)
                 {
-                    spriteBatch.DrawString(fontArial, "ª±®aÄ¹", new Vector2(410, 10), Color.DarkGreen);
+                    spriteBatch.DrawString(fontArial, "ç©å®¶è´", new Vector2(410, 10), Color.DarkGreen);
                 }
             }
             spriteBatch.End();
@@ -241,7 +246,7 @@ namespace GuessFingerMoocs
             base.Draw(gameTime);
         }
 
-        // §PÂ_¿éÄ¹ªº¨ç¼Æ
+        // åˆ¤æ–·è¼¸è´çš„å‡½æ•¸
         void checkWinner()
         {
             if (player== computer)
